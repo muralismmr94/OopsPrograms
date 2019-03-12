@@ -1,0 +1,24 @@
+{
+    "company": 
+        [
+            {
+                "name": "facebook",
+                "symbol":"F",
+                "share":300,
+                "price":2500
+            },
+            {
+                "name":"google",
+                "symbol":"G",
+                "share":600,
+                "price":5000
+            },
+            {
+                "name":"Bridge labz",
+                "symbol":"B",
+                "share":200,
+                "price":4000
+            }
+        ]
+    
+}
