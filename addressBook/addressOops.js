@@ -1,7 +1,7 @@
 var read = require('readline-sync');
 var file = require('fs');
 /**
- * create an person class to initialized the variables
+ *@description  : create an person class to initialized the variables
  */
 class Person {
     /**
@@ -24,14 +24,16 @@ class Person {
     }
 }
 /**
- * create an address book class.
+ *@description  : create an address book class.
  */
 class AddressBook {
     /**
-     * create a default constructor 
+     *@description  : create a default constructor 
      */
     constructor() { }
-    // create new address book function
+    /**
+     * @description create new address book function
+     */
     addPerson(data) {
         var fname = read.question("Enter firstname of person : ");
         var lname = read.question("Enter lastname of person : ");
@@ -40,16 +42,22 @@ class AddressBook {
         var state = read.question("Enter state of person : ")
         var phoneNo = read.questionInt("Enter phonenumber : ")
         var zip = read.questionInt("Enter zip code : ")
-        // create object of Person class
+        /**
+         * @description create object of Person class
+         * */
         var obj = new Person(fname, lname, address, city, state, phoneNo, zip)
         /**
-        * push each value into json
+        *@description   : push each value into json
         */
         data.personAddress.push(obj);
-        // write data into json file
+        /**
+         * @description write data into json file
+         */
         var d = file.writeFileSync('/home/admin1/Desktop/myjavascript/oopsprograms/JSONfiles/addressBook.json', JSON.stringify(data))
     }
-    // updating address book function
+    /**
+     * @description updating address book function
+     */
     updatePerson(data) {
         var name = read.question("enter Firstname of person :")
         for (let i = 0; i < data.personAddress.length; i++) {
@@ -84,7 +92,9 @@ class AddressBook {
         }
     }
 
-    // update first name
+    /**
+     * @description update first name
+     */
     firstname(data, index) {
         var fname1 = read.question("enter the name changed first name:")
         data.personAddress[index].personfname = fname1
@@ -92,56 +102,72 @@ class AddressBook {
         console.log("the first name of the person is updated");
 
     }
-    // update last name
+    /**
+     * @description :update last name
+     */
     lastname(data, index) {
         var lname1 = read.question("enter changed last name:")
         data.personAddress[index].personlname = lname1
         var d = file.writeFileSync('/home/admin1/Desktop/myjavascript/oopsprograms/JSONfiles/addressBook.json', JSON.stringify(data))
         console.log("the last name of the person is updated");
     }
-    // update phone number
+    /**
+     * @description :update phone number
+     */
     phonenumber(data, index) {
         var phonenumber1 = read.questionInt("enter  changed phonenumber:")
         data.personAddress[index].phonenumber = phonenumber1
         var d = file.writeFileSync('/home/admin1/Desktop/myjavascript/oopsprograms/JSONfiles/addressBook.json', JSON.stringify(data))
         console.log("the phoneNo of the person is updated");
     }
-    // update city
+    /**
+     * @description :update city
+     */
     city(data, index) {
         var cityname = read.question("enter changed city name")
         data.personAddress[index].city = cityname
         var d = file.writeFileSync('/home/admin1/Desktop/myjavascript/oopsprograms/JSONfiles/addressBook.json', JSON.stringify(data))
         console.log("the city of the person is updated");
     }
-    // update city
+    /**
+     * @@description    : update city
+     */
     state(data, index) {
         var statename = read.question("enter the changed state name")
         data.personAddress[index].state = statename
         var d = file.writeFileSync('/home/admin1/Desktop/myjavascript/oopsprograms/JSONfiles/addressBook.json', JSON.stringify(data))
         console.log("the state of the person is updated");
     }
-    // update zipcode
+    /**
+     * @description : update zipcode
+     */
     zipcode(data, index) {
         var zipcode = read.questionInt("enter the name changed zip code")
         data.personAddress[index].zip = zipcode
         var d = file.writeFileSync('/home/admin1/Desktop/myjavascript/oopsprograms/JSONfiles/addressBook.json', JSON.stringify(data))
         console.log("the zipcode of the person is updated");
     }
-    //update address
+    /**
+     * @description :update address
+     */
     address(data, index) {
         var address = read.question("enter the address you changed")
         data.personAddress[index].address = address
         var d = file.writeFileSync('/home/admin1/Desktop/myjavascript/oopsprograms/JSONfiles/addressBook.json', JSON.stringify(data))
         console.log("the address of the person is updated");
     }
-    // removing or deleting particulor person
+    /**
+     * @description removing or deleting particulor person
+     */
     removeperson(data) {
 
         var name = read.question("enter name of person to be remove:")
         for (let i = 0; i < data.personAddress.length; i++) {
             if (data.personAddress[i].personfname == name) {
                 var index = data.personAddress.indexOf(data.personAddress[i]);
-                // This will remove the object that name of the person
+                /**
+                 * @description : This will remove the object that name of the person
+                 */
                 var dd = data.personAddress.splice(index, 1);
             }
             var d = file.writeFileSync('/home/admin1/Desktop/myjavascript/oopsprograms/JSONfiles/addressBook.json', JSON.stringify(data))
@@ -150,16 +176,25 @@ class AddressBook {
         }
 
     }
+    /**
+     * @description :This function is used to sorting the data used by firstname of the user.
+     * @param {*} data 
+     */
     sortfname(data) {
         let fname = data.personAddress.fname;
         var arr = [];
         for (let i = 0; i <= data.personAddress.length; i++) {
             arr[i] = data.personAddress[i];
         }
+        
         arr.sort();
         console.log(arr);
     }
-   
+    
+    /**
+     * @description  : printing the address of all the details with all the persons.
+     * @param {*} data 
+     */
     printadd(data) {
         var person = data.personAddress;
         for (const key in person) {
@@ -169,4 +204,7 @@ class AddressBook {
 
     }
 }
+/**
+ * @description : exporting the clsses to importing purpose.
+ */
 module.exports = { Person, AddressBook }

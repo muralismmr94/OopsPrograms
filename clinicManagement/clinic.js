@@ -223,7 +223,7 @@ class clinic {
                     /**
                      * Validation to accept valid id
                      */
-                    while (!this.getIdFromPatient(clinicJsonObject).includes(patientID)) {
+                    while (this.getIdFromPatient(clinicJsonObject).includes(patientID)) {
                         console.log("Enter the valid Id");
                         patientID = readline.question("Enter the id of the patient: ");
                     }
@@ -231,7 +231,7 @@ class clinic {
                      * Display the patient details
                      */
                     for (let key in patient) {
-                        if (patient[key].Id == patientID) {
+                        if (patient[key].id == patientID) {
                             console.log("Patient details: ");
                             console.log(patient[key]);
                         }
@@ -283,9 +283,9 @@ class clinic {
                  */
                 var patientName = readline.question("\nEnter the patient name: ");
                 var age = readline.questionInt("Enter the age of the patient: ");
-                var newPatientId = Math.floor(Math.random() * 100000);
+                var newPatientId = Math.floor(Math.random() * 1000);
                 var phoneNumber = readline.questionInt("Enter your phone number: ");
-                while(phoneNumber > 9999999999 || phoneNumber < 999999999) {
+                while (phoneNumber > 9999999999 || phoneNumber < 999999999) {
                     console.log("Mobile number should be of 10 digit");
                     phoneNumber = readline.questionInt("Enter different phone number: ");
                 }
@@ -311,7 +311,7 @@ class clinic {
                  */
                 file.writeFileSync("/home/admin1/Desktop/myjavascript/oopsprograms/JSONfiles/clilnicManagement.json",
                     JSON.stringify(clinicJsonObject));
-                console.log("Your appointment is confirmed on " + day + "/" + month + "/" + year+"and doctor name is "+appointmentFrom);
+                console.log("Your appointment is confirmed on " + day + "/" + month + "/" + year + "and doctor name is " + appointmentFrom);
             } else console.log("Enter valid input");
         } catch (error) {
             console.log(error.message);

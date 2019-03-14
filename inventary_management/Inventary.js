@@ -13,7 +13,6 @@ class InventoryFactory{
             /**
             * Push the data given to the end of the array(ie, JSON object)
             */
-            //data.ListOfStocks.push({shareName:name,noOfShares:shares,price:cost});
             data.listOfShares.push({CompanyName:name,NoOfShares:shares,price:cost});
             /**
             * Use function JSON.stringify() to convert data into a string and write it to JSON file
@@ -40,7 +39,7 @@ class InventoryFactory{
                 if(data.listOfShares[i].CompanyName==name){
                     var index = data.listOfShares.indexOf(data.listOfShares[i]);
                     data.listOfShares.splice(index, 1);
-                }
+                  }
                 /**
                 * Use function JSON.stringify() to convert data into a string and write it to JSON file
                 */
@@ -65,26 +64,9 @@ class InventoryFactory{
    * Function to print the calculated values of the shares in JSON file.
    * @param {JSON object} data
    */
-  calcValue(data) {
-    try {
-      var access = require("../stock_report/Stock");
-      var totalValue = 0;
-      var stock = data.listOfShares;
-      /**
-       * Using for-in loop, access each stock, create a stock object and invoke valueOfStock() method
-       * and print the total value of all the stocks
-       */
-      for (const key in stock) {
-        var hold = stock[key];
-        var sto = new access.Stock(hold.shareName, hold.noOfShares, hold.price);
-        var report = sto.valueOfStock();
-        console.log("Value of stock " + hold.shareName + " : " + report + "â‚¹\n");
-        totalValue = totalValue + report;
-      }
-      console.log("Total value of all the stocks: " + totalValue + "â‚¹\n");
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
+  
 }
+/**
+ * @description :calling the class to export the certain function.
+ */
 module.exports={InventoryFactory}

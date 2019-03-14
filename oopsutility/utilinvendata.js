@@ -24,6 +24,9 @@ module.exports = {
      */
     inventaryData(data) {
         try {
+            /**
+             * @description : assaigning the values into the local variables.
+             */
             var rice = data.rice;
             var wheats = data.wheats;
             var pulses = data.pulses;
@@ -38,35 +41,50 @@ module.exports = {
             /**
              * looping is used to iterating the keys of rice.
              */
+            console.log("Rice details description");
             for (let key in rice) {
                 var amount = rice[Ricename].weight * rice[Ricename].price;
                 console.log("\ncost of " + rice[Ricename].name + " is:" + amount + "Rs");
                 Ricename++;
                 valueOfRice += amount;
-            }
-            console.log("\nThe total amount of rice is " + valueOfRice);
-
-             /**
-             * looping is used to iterating the keys of wheats.
+            } 
+            /**
+             * @description : printing the total rice amount.
              */
+            console.log("\nThe total amount of rice is " + valueOfRice);
+            console.log("----------------------------------------------------------");
+
+            /**
+            * looping is used to iterating the keys of wheats.
+            */
+           console.log("Wheats details description");
             for (let key in wheats) {
                 var amount = wheats[Wheatsname].weight * wheats[Wheatsname].price;
                 console.log("\ncost of " + wheats[Wheatsname].name + " is:" + amount + "Rs");
                 Wheatsname++;
                 valueOfWheats += amount;
             }
-            console.log("\nThe total amount of wheats is " + valueOfWheats);
-
-             /**
-             * looping is used to iterating the keys of pulses.
+            /**
+             * @description : printing the total wheats amount.
              */
+            console.log("\nThe total amount of wheats is " + valueOfWheats);
+            console.log("----------------------------------------------------------");
+
+            /**
+            * looping is used to iterating the keys of pulses.
+            */
+           console.log("Pulses details description");
             for (let key in pulses) {
                 var amount = pulses[Pulsesname].weight * pulses[Pulsesname].price;
                 console.log("\ncost of " + pulses[Pulsesname].name + " is:" + amount + "Rs");
                 Pulsesname++;
                 valueOfPulses += amount;
             }
+            /**
+             * @description : printing the total pulses amount.
+             */
             console.log("\nThe total amount of pulses is " + valueOfPulses);
+            console.log("----------------------------------------------------------");
 
 
         }

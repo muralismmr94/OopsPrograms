@@ -11,27 +11,40 @@
  * @since           : 11/03/2019
  * **************************************************************************************/
 var util=require('./oopsutility/Utility');
+/**
+ * @description : creating the function .
+ */
 function main() {
     try {
       /**	
-       * To get the deck of cards
+       * @description : To get the deck of cards and storing the variable.
        */
       var cardArray = util.deckOfCards();
       /**
-       *To distribute 9 Cards to 4 Players
+       *@description  : To distribute 9 Cards to 4 Players
        */
-      //console.log(cardArray)
       var arr = [[], [], [], []];
       var noOfCards = 0;
+      /**
+       * @description : looping is used to selecting the players here.
+       */
       for (let players = 0; players < 4; players++) {
+        /**
+         * @description : loop is used to assaign the values to the certain player.
+         */
         for (let cards = 0; cards < 9; cards++) {
           arr[players][cards] = cardArray[cards + noOfCards];
         }
+        /**
+         * @description counting the total cards.
+         */
         noOfCards = noOfCards + 9;
       }
       console.log();
+      console.log("Players assigned cards are\n");
+      
       /**
-       * To print shuffled deck of cards of each player
+       * @description : To print shuffled deck of cards of each player
        */
       for (let player = 0; player < arr.length; player++) {
         console.log( "Deck of cards of player " +(player + 1) +" is: " +
@@ -42,4 +55,7 @@ function main() {
       console.log(error.message);
     }
   }
+  /**
+   * @description : calling the function.
+   */
   main();

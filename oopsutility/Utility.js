@@ -1,18 +1,39 @@
 module.exports = {
+  /**
+   * @description :The method is used to change the content of particular places.
+   * @param {*} name 
+   * @param {*} fullname 
+   * @param {*} mobile 
+   */
     regExp(name, fullname, mobile) {
         var readline = require('readline-sync');
         var fs = require('fs');
         var patt = /[a-zA-Z]/;
+
+        /**
+         * @description : It is used to checking name and fullname validation.
+         */
         while (!patt.test(name) || !patt.test(fullname)) {
             name = readline.question("please enter a name valid charaters input");
             fullname = readline.question("please enter a fullname characters input");
         }
-        while (isNaN(mobile) && mobile.length != 10) {
+        /**
+         * @description : It is used to validating the mobile number.
+         */
+         var mobile1 = ""+mobile;
+        while (!isNaN(mobile) && (mobile1.length != 10)) {
             mobile = readline.questionInt("please enter a valid number ");
+            mobile1 = ""+mobile;
         }
         var date = new Date();
+        /**
+         * @description : Here reading the file and storing the variable.
+         */
         var file = fs.readFileSync("/home/admin1/Desktop/myjavascript/oopsprograms/oopsutility/Regularexp.txt");
         file = file.toString();
+        /**
+         * @description : Replace method is used to change certain pattern to particular values.
+         */
         file = file.replace(/<<name>>/g, name);
         file = file.replace(/<<full name>>/g, fullname);
         file = file.replace(/xxxxxxxxxx/g, mobile);

@@ -16,7 +16,7 @@ var utilityDs = require("../DataStructure/Implementation/Qutil");
 function main() {
   try {
     var totalCards = utilityOops.deckOfCards();
-   //console.log(totalCards);
+    //console.log(totalCards);
     var player1Cards = [];
     var player2Cards = [];
     var player3Cards = [];

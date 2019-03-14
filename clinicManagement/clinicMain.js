@@ -22,8 +22,7 @@ function clinicManagement() {
     /**
      * Read the JSON file
      */
-    var clinicJSON = file.readFileSync(
-      "/home/admin1/Desktop/myjavascript/oopsprograms/JSONfiles/clilnicManagement.json","utf8");
+    var clinicJSON = file.readFileSync("/home/admin1/Desktop/myjavascript/oopsprograms/JSONfiles/clilnicManagement.json","utf8");
     /**
      * Parse the JSON file to JavaScript object
      */
